@@ -60,3 +60,8 @@ To Activate Theme
 1. Run tmux
 2. Ctrl + A + I
 ```
+
+> Note After installing Oh My ZSH/Powerlevel10k, many icons wont appear in Tmux, to over come this issue, make an alias in .zshrc
+> $vim ~/.zshrc
+> alias tmux='tmux -u'
+
