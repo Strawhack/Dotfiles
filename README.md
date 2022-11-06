@@ -11,6 +11,16 @@ $sudo nala -y install xclip    (If Nala is installed)
 $sudo apt -y install xclip     (Using apt)
 ```
 
+#### Install Font-Manager
+```ruby
+$sudo nala install -y font-manager
+
+Download Meslo Font 
+https://github.com/romkatv/dotfiles-public/tree/master/.local/share/fonts/NerdFonts
+
+Install Fonts using font-manager
+```
+
 #### Configure Tmux
 ```sh
 Create .tmux.conf file
