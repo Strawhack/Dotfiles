@@ -10,8 +10,6 @@ set -g allow-rename off
 # Ensure that we can send Ctrl-A to other apps by pressing Ctrl-A twice
 bind C-a send-prefix
 
-# set -g default-terminal screen-256color
-
 # splitting panes with | and -
 bind | split-window -h
 bind - split-window -v
@@ -20,10 +18,6 @@ bind - split-window -v
 set -g mouse on
 setw -g monitor-activity on
 
-# Reload tmux config
-#bind r source-file ~/.tmux.conf
-
-#source-file ~/.tmux.conf
 
 #search mode VI(default is emac)
 set-window-option -g mode-keys vi
@@ -32,14 +26,28 @@ bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel 'xclip -in -selection c
 # Set 256 Colors
 set -s default-terminal 'tmux-256color'
 
-# Change Color of Status Bar
-# set -g status-style bg='#600202',fg='#deded2'     
+# Status Line
+set -g status on
+set -g status-interval 1
+set -g status-justify centre 
+set -g status-style fg=white,bg=black
+
+# Highlight the current window
+setw -g window-status-current-style fg=white,bg=red,bright
+
+# Default Left Status
+set -g status-left-length 100
+set -g status-left-style default
+set -g status-left "#h #(ip addr | egrep 'ppp0|tun0' -A 2 | awk '/inet /{printf $2}')"
+#set -g status-left " "
+
+# Default Right Status
+set -g status-right-length 100
+set -g status-right-style default
+set -g status-right " "
 
 # Adds highlight in color of white for currently selected window
 # setw -g window-status-current-style fg=black,bg=white
-
-# Change Status bar on left
-# set -g status-left "#[fg="green,bold"]#(echo 'Deathnote ')"
 
 # List of plugins
 set -g @plugin 'tmux-plugins/tpm'
